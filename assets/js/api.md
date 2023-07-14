@@ -1,0 +1,2 @@
+Google API: AIzaSyAiKNEaOOEcNyMz_CmFsiM5pH9EtvAK5uk
+Weather API: cf9803c3b377a9b6c5550c2755ccbd51
