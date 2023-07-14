@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <body>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -10,6 +11,38 @@
       rel="stylesheet"
     />
     <link href="/path/to/your/built/tailwind.css" rel="stylesheet" />
-    <img src="./images/Hemisphere Supply Co. - Modern.png" alt="logo display" />
+    <img
+      src="./images/Hemisphere Supply Co. - Modern.png"
+      alt="logo display"
+      class="sm:w-32 md:w-48 lg:w-56 xl:w-64"
+    />
+
+    <div>
+      <div id="citySearch">City Search:</div>
+      <div id="searchContainer">
+        <input type="" id="searchCity" />
+        <button id="submitButton">Search</button>
+      </div>
+    <!-- current weather data -->
+    <div id="container">
+      <div class="card-container">
+        <div>
+          <div id="currentTemp"></div>
+        </div>
+
+        <div>
+          <div id="dogParks"></div>
+          <div class="park-card"></div>
+          <div class="park-card"></div>
+          <div class="park-card"></div>
+          <div class="park-card"></div>
+          <div class="park-card"></div>
+          <div class="park-card"></div>
+        </div>
+      </div>
+      <div id="parkInfo" class="park-container">
+      </div>
+    </div>
+    </body>
   </head>
 </html>
