@@ -4,16 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link href="/path/to/your/tailwind.css" rel="stylesheet" />
     <link
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
-    <link href="/path/to/your/built/tailwind.css" rel="stylesheet" />
-    <!-- test header for tailwind -->
-    <img src="./images/Hemisphere Supply Co. - Modern.png" alt="logo display" />
+    <link rel="stylesheet" href="./assets/css/homepage.css" />
   </head>
 
+
   <script src="./assests/js/script.js"></script>
+
+  <body>
+    <header class="flex justify-center items-center py-8">
+      <!-- Logo -->
+      <img
+        src="./images/Hemisphere Supply Co. - Modern.png"
+        alt="logo display"
+        style="max-height: 500px"
+      />
+    </header>
+
+    <div class="flex flex-col items-center mt-2">
+      <!-- Search Bar and Button -->
+      <input
+        type="text"
+        placeholder="Type in your City"
+        class="p-2 border border-yellow-300 rounded-md focus:outline-none focus:ring focus:border-yellow-300 mt-2"
+      />
+      <button
+        id="start-button"
+        class="px-4 py-2 mt-2 bg-yellow-300 text-white rounded-md"
+      >
+        Wuff
+      </button>
+    </div>
+  </body>
 
 </html>
