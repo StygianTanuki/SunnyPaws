@@ -49,3 +49,7 @@ function initMap() {
 }
 
 // ^ Google Maps JS ^
+
+if (JSON.parse(localStorage.getItem("enteredCity")) == -1){
+  form.style.display = "none";
+}
