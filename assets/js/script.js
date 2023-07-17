@@ -11,30 +11,41 @@ function search() {
 
 // v Google Maps JS integration v
 // Initialize and add the map
-let map;
+// let map;
 
-async function initMap() {
-  // The location of Orlando
-  const position = { lat: 28.538336, lng: -81.379234 };
-  // Request needed libraries.
-  //@ts-ignore
-  const { Map } = await google.maps.importLibrary("maps");
-  const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
 
-  // The map, centered at Orlando
-  map = new Map(document.getElementById("map"), {
-    zoom: 4,
-    center: position,
-    mapId: "DEMO_MAP_ID",
-  });
 
-  // The marker, positioned at Orlando
-  const marker = new AdvancedMarkerElement({
-    map: map,
-    position: position,
-    title: "Orlando",
+// async function initMap() {
+//   // The location of Orlando
+//   const position = { lat: 28.538336, lng: -81.379234 };
+//   // Request needed libraries.
+//   //@ts-ignore
+//   const { Map } = await google.maps.importLibrary("maps");
+//   const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+
+//   // The map, centered at Orlando
+//   map = new Map(document.getElementById("map"), {
+//     zoom: 4,
+//     center: position,
+//     mapId: "DEMO_MAP_ID",
+//   });
+
+//   // The marker, positioned at Orlando
+//   const marker = new AdvancedMarkerElement({
+//     map: map,
+//     position: position,
+//     title: "Orlando",
+//   });
+// }
+
+// initMap();
+
+function initMap() {
+  // Create a new map instance
+  const map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: 40.7128, lng: -74.0060 }, // Coordinates for the map center (New York City)
+    zoom: 12, // Initial zoom level
   });
 }
 
-initMap();
 // ^ Google Maps JS ^

@@ -5,12 +5,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link href="/path/to/your/tailwind.css" rel="stylesheet" />
+    <link href="./assets/css/taildwind.css" rel="stylesheet" />
     <link
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
-    <link href="/path/to/your/built/tailwind.css" rel="stylesheet" />
+    <link href="./assets/css/taildwind.css" rel="stylesheet" />
     <img
       src="./images/Hemisphere Supply Co. - Modern.png"
       alt="logo display"
@@ -22,6 +22,8 @@
       <div id="searchContainer">
         <input type="" id="searchCity" />
         <button id="submitButton">Search</button>
+
+        <div id="map"></div>
       </div>
     <!-- current weather data -->
     <div id="container">
@@ -46,6 +48,8 @@
     </body>
   </head>
 
-  <script src="./assests/js/script.js"></script>
+  <script src="./assets/js/script.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAiKNEaOOEcNyMz_CmFsiM5pH9EtvAK5uk&callback=initMap" async defer></script>
+
 
 </html>
