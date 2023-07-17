@@ -49,3 +49,8 @@ function initMap() {
 }
 
 // ^ Google Maps JS ^
+
+// Trying to get the string from the homepage to this page.
+if (JSON.parse(localStorage.getItem("enteredCity")) == -1){
+  form.style.display = "none";
+}
