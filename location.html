@@ -25,14 +25,29 @@
     <div>
       <div>City Search:</div>
       <div id="searchContainer">
-        <input type="" id="searchCity" />
+        <input type="text" id="searchCity" />
         <button id="submitButton">Search</button>
+        <div id="location"></div>
         <div id="currentTemp"></div>
         <div id="map"></div>
       </div>
     <!-- current weather data -->
     <div id="container">
       <div class="card-container">
+
+        <iframe
+        id="mapFrame"
+  width="600"
+  height="450"
+  style="border:0"
+  loading="lazy"
+  allowfullscreen
+  referrerpolicy="no-referrer-when-downgrade"
+  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAiKNEaOOEcNyMz_CmFsiM5pH9EtvAK5uk
+    &q=Space+Needle,Seattle+WA">
+</iframe>
+
+
 
         <div>
           <div id="dogParks"></div>
@@ -53,6 +68,7 @@
     crossorigin="anonymous"
   ></script>
     <script src="./assets/js/location.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </body>
 
 
