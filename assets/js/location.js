@@ -2,7 +2,6 @@ var googleApi = "AIzaSyAiKNEaOOEcNyMz_CmFsiM5pH9EtvAK5uk";
 var weatherApi = "cf9803c3b377a9b6c5550c2755ccbd51";
 var searchBtn = document.getElementById("");
 var currentWeather = document.getElementById("");
-// let cityArray = [];
 var citySearch = document.querySelector("#citySearch");
 var submitButton = document.querySelector("#submitButton");
 var apiKey = "f3ff5901402986dd4ec3b605204bfe0c";
@@ -61,6 +60,9 @@ submitButton.addEventListener("click", function () {
   getCoordinates(citySearch.value);
   localStorage.setItem("searchCity", JSON.stringify(citySearch));
 });
+
+// Test for push
+
 // v Google Maps JS integration v
 
 // document.querySelector("#location") function() {
