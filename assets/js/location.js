@@ -48,6 +48,8 @@ function initMap() {
   });
 }
 
+
+
 // ^ Google Maps JS ^
 
 // Trying to get the string from the homepage to this page.
