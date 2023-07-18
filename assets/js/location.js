@@ -3,12 +3,8 @@ var weatherApi = "cf9803c3b377a9b6c5550c2755ccbd51";
 var searchBtn = document.getElementById("");
 var currentWeather = document.getElementById("");
 // let cityArray = [];
-// Input
 var citySearch = document.querySelector("#citySearch");
-// button
 var submitButton = document.querySelector("#submitButton");
-console.log(document.querySelector("#submitButton"));
-// api Key
 var apiKey = "f3ff5901402986dd4ec3b605204bfe0c";
 
 function search() {
@@ -16,23 +12,23 @@ function search() {
   console.log(content);
 }
 
-// async function getCoordinates(param) {
-//   // DONT FORGET TO ADD HTTPS WHEN DEPLOYING
-//   var apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${param}&limit=5&appid=${apiKey}&units=imperial`;
-//   await fetch(apiUrl)
-//     .then(function (Response) {
-//       return Response.json();
-//     })
-//     .then(function (data) {
-//       var currentTemp = document.querySelector("#currentTemp");
-//       var icon = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
+async function getCoordinates(param) {
+  // DONT FORGET TO ADD HTTPS WHEN DEPLOYING
+  var apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${param}&limit=5&appid=${apiKey}&units=imperial`;
+  await fetch(apiUrl)
+    .then(function (Response) {
+      return Response.json();
+    })
+    .then(function (data) {
+      var currentTemp = document.querySelector("#currentTemp");
+      var icon = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
 
-//       currentTemp.innerHTML = `<h2>${data.name} <br>Current Forecast:</h2><img src=${icon}></img><div>Tempature: ${data.main.temp}</div><div>Humidty: ${data.main.humidity}</div><div>Wind Speed: ${data.wind.speed} mph</div>`;
+      currentTemp.innerHTML = `<h2>${data.name} <br>Current Forecast:</h2><img src=${icon}></img><div>Tempature: ${data.main.temp}</div><div>Humidty: ${data.main.humidity}</div><div>Wind Speed: ${data.wind.speed} mph</div>`;
 
-//       fiveDay(data.coord.lon, data.coord.lat);
-//       citySave(data.name);
-//     });
-// }
+      fiveDay(data.coord.lon, data.coord.lat);
+      citySave(data.name);
+    });
+}
 
 // async function fiveDay(lon, lat) {
 //   var apiFiveDay = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`;
@@ -62,8 +58,8 @@ function search() {
 
 submitButton.addEventListener("click", function () {
   console.log("click");
-  // getCoordinates(citySearch.value);
-  localStorage.setItem("searchCity", JSON.stringify(searchCity));
+  getCoordinates(citySearch.value);
+  localStorage.setItem("searchCity", JSON.stringify(citySearch));
 });
 // v Google Maps JS integration v
 
