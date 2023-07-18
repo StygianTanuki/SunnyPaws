@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <body>
+    <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -22,23 +21,18 @@
     <link rel="stylesheet" href="./assets/css/styles.css" />
   </head>
 
-
-  <script src="./assets/js/location.js"></script>
-
+<body>
     <div>
       <div id="citySearch">City Search:</div>
       <div id="searchContainer">
         <input type="" id="searchCity" />
         <button id="submitButton">Search</button>
-
+        <div id="currentTemp"></div>
         <div id="map"></div>
       </div>
     <!-- current weather data -->
     <div id="container">
       <div class="card-container">
-        <div>
-          <div id="currentTemp"></div>
-        </div>
 
         <div>
           <div id="dogParks"></div>
@@ -53,11 +47,12 @@
       <div id="parkInfo" class="park-container">
       </div>
     </div>
+    <script src="./assets/js/location.js"></script>
     </body>
-  </head>
 
-  <script src="./assets/js/location.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAiKNEaOOEcNyMz_CmFsiM5pH9EtvAK5uk&callback=initMap" async defer></script>
+
+  
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAiKNEaOOEcNyMz_CmFsiM5pH9EtvAK5uk&callback=initMap" async defer></script> -->
 
 
 </html>
