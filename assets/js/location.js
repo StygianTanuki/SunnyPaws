@@ -97,12 +97,10 @@ submitButton.addEventListener("click", function () {
 // function initMap() {
 //   // Create a new map instance
 //   const map = new google.maps.Map(document.getElementById("map"), {
-//     center: { lat: 40.7128, lng: -74.006 }, // Coordinates for the map center (New York City)
+//     center: { lat: 40.7128, lng: -74.0060 }, // Coordinates for the map center (New York City)
 //     zoom: 12, // Initial zoom level
 //   });
 // }
-
-// // ^ Google Maps JS ^
 
 // // Trying to get the string from the homepage to this page.
 // if (JSON.parse(localStorage.getItem("enteredCity")) == -1) {
