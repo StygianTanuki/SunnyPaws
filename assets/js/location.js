@@ -8,12 +8,16 @@ var apiKey = "f3ff5901402986dd4ec3b605204bfe0c";
 
 function search() {
   var content = citySearch.value;
-  console.log(content);
 }
 
 async function getCoordinates(param) {
-  // DONT FORGET TO ADD HTTPS WHEN DEPLOYING
-  var apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${param}&limit=5&appid=${apiKey}&units=imperial`;
+
+  var apiUrl =
+    `https://api.openweathermap.org/data/2.5/weather?q=` +
+    param +
+    `&limit=5&appid=${apiKey}&units=imperial`;
+  console.log(apiUrl);
+  
   await fetch(apiUrl)
     .then(function (Response) {
       return Response.json();
@@ -60,8 +64,6 @@ submitButton.addEventListener("click", function () {
   getCoordinates(citySearch.value);
   localStorage.setItem("searchCity", JSON.stringify(citySearch));
 });
-
-// Test for push
 
 // v Google Maps JS integration v
 
