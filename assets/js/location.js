@@ -8,12 +8,9 @@ var apiKey = "f3ff5901402986dd4ec3b605204bfe0c";
 
 function search() {
   var content = citySearch.value;
-  console.log(content);
 }
 
 async function getCoordinates(param) {
-  // DONT FORGET TO ADD HTTPS WHEN DEPLOYING
-  console.log(param);
   var apiUrl =
     `https://api.openweathermap.org/data/2.5/weather?q=` +
     param +
@@ -64,8 +61,6 @@ submitButton.addEventListener("click", function () {
   getCoordinates(searchCity.value);
   localStorage.setItem("searchCity", searchCity.value);
 });
-
-// Test for push
 
 // v Google Maps JS integration v
 // Initialize and add the map
