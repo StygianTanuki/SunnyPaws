@@ -17,6 +17,8 @@
       alt="logo display"
       class="sm:w-32 md:w-48 lg:w-56 xl:w-64"
     />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=1500&type=restaurant&keyword=cruise&key=AIzaSyAiKNEaOOEcNyMz_CmFsiM5pH9EtvAK5uk"></script> -->
 
     <link rel="stylesheet" href="./assets/css/styles.css" />
   </head>
@@ -35,7 +37,8 @@
     <div id="container">
       <div class="card-container">
 
-        <iframe
+        <div id="map">
+<iframe
         id="mapFrame"
   width="600"
   height="450"
@@ -46,6 +49,7 @@
   src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAiKNEaOOEcNyMz_CmFsiM5pH9EtvAK5uk
     &q=Space+Needle,Seattle+WA">
 </iframe>
+        </div>
 
 
 
@@ -68,7 +72,6 @@
     crossorigin="anonymous"
   ></script>
     <script src="./assets/js/location.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {

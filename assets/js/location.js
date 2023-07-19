@@ -37,38 +37,183 @@ submitButton.addEventListener("click", function () {
 
 // v Google Maps JS integration v
 
-// document.querySelector("#location") function() {
-//   $("#submitButton").on("click", function() {
-//     // Get the user input from the input field
-//     var userInput = $("#searchCity").val();
+$("#submitButton").on("click", function () {
+  // Get the user input from the input field
+  var userInput = $("#searchCity").val();
 
-//     // Convert spaces in the user input to plus signs (+) as required by the Google Maps API
-//     var query = userInput.replace(/\s+/g, "+");
+  var query = userInput + " dog parks";
 
-//     // Construct the new URL with the updated location query
-//     var newSrc = "https://www.google.com/maps/embed/v1/place?key=AIzaSyAiKNEaOOEcNyMz_CmFsiM5pH9EtvAK5uk&q=" + query;
+  // Convert spaces in the user input to plus signs (+) as required by the Google Maps API
+  var query = userInput.replace(/\s+/g, "+");
 
-//     // Update the src attribute of the iframe
-//     $("#mapFrame").attr("src", newSrc);
+  // Construct the new URL with the updated location query
+  var newSrc =
+    "https://www.google.com/maps/embed/v1/place?key=AIzaSyAiKNEaOOEcNyMz_CmFsiM5pH9EtvAK5uk&q=" +
+    query;
+
+  // Update the src attribute of the iframe
+  $("#mapFrame").attr("src", newSrc);
+  getCoordinates(userInput);
+});
+function getCoordinates(city) {
+  fetch(
+    "http://api.openweathermap.org/geo/1.0/direct?q=" +
+      city +
+      "&appid=" +
+      apiKey
+  )
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      // console.log(data);
+      var lat = data[0].lat;
+      var long = data[0].lon;
+      // console.log(lat,long);
+      getTrails(lat, long);
+    });
+}
+
+const getTrails = (lat, long) => {
+  console.log("Getting Trails");
+  console.log(lat, long);
+  let url =
+    "https://floating-headland-95050.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" +
+    lat +
+    "," +
+    long +
+    "&radius=50000&type=dog&keyword=park&key=AIzaSyAiKNEaOOEcNyMz_CmFsiM5pH9EtvAK5uk";
+
+  // var hiker = "./images/hiker.png";
+
+  fetch(url, {
+    method: "GET",
+    dataType: "jsonp",
+    headers: {},
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      //map over this data and create markers on the map
+
+      data.results.forEach((place) => {
+        console.log(place);
+
+      //   new google.maps.Marker({
+      //     position: place.geometry.location,
+      //     map,
+      //     // icon: hiker, //If you add a custom icon you can add that here
+      //     title: place.name,
+      //   });
+      });
+    })
+    .catch((err) => console.log(err));
+};
+
+// $("#submitButton").on("click", function () {
+//   // Get the user input from the input field
+//   var userInput = $("#searchCity").val();
+
+//   // Add "dog parks" to the user input to search specifically for dog parks
+//   var query = userInput + " dog parks";
+
+//   // Initialize the map
+//   var map = new google.maps.Map(document.getElementById('map'), {
+//     center: {lat: -34.397, lng: 150.644},
+//     zoom: 14
 //   });
-// };
 
-// function mapDisplay() {
-//   submitButton.on("click", function () {
-//     // Get the user input from the input field
-//     var userInput = $("#searchCity").val();
+//   // Create a Places service object to perform nearby search
+//   var service = new google.maps.places.PlacesService(map);
 
-//     // Convert spaces in the user input to plus signs (+) as required by the Google Maps API
-//     var query = userInput.replace(/\s+/g, "+");
+//   // Perform the nearby search
+//   service.nearbySearch({
+//     location: map.getCenter(),
+//     radius: 5000, // You can adjust the search radius as needed
+//     keyword: 'dog park'
+//   }, function(results, status) {
+//     if (status === google.maps.places.PlacesServiceStatus.OK) {
+//       // Clear existing markers on the map
+//       clearMarkers();
 
-//     // Construct the new URL with the updated location query
-//     var newSrc =
-//       "https://www.google.com/maps/embed/v1/place?key=AIzaSyAiKNEaOOEcNyMz_CmFsiM5pH9EtvAK5uk&q=" +
-//       query;
-
-//     // Update the src attribute of the iframe
-//     $("#mapFrame").attr("src", newSrc);
-
-//     mapDisplay();
+//       // Display markers for each dog park in the search results
+//       for (var i = 0; i < results.length; i++) {
+//         createMarker(results[i]);
+//       }
+//     }
 //   });
+// });
+
+// var markers = [];
+
+// function createMarker(place) {
+//   var marker = new google.maps.Marker({
+//     map: map,
+//     position: place.geometry.location,
+//     title: place.name
+//   });
+//   markers.push(marker);
 // }
+
+// function clearMarkers() {
+//   for (var i = 0; i < markers.length; i++) {
+//     markers[i].setMap(null);
+//   }
+//   markers = [];
+// }
+
+// var map;
+//   var service;
+//   var markers = [];
+
+//   function initialize() {
+//     // Create the map centered at a specific location (e.g., New York City)
+//     var center = new google.maps.LatLng(40.7128, -74.0060);
+//     map = new google.maps.Map(document.getElementById('map'), {
+//       center: center,
+//       zoom: 14
+//     });
+
+//     // Create a Places service object to perform text search
+//     service = new google.maps.places.PlacesService(map);
+//   }
+
+//   $("#submitButton").on("click", function () {
+//     // Get the user input from the input field
+//     var userInput = $("#searchCity").val();
+
+//     // Perform a text search for "dog parks" near the location specified by the user
+//     service.textSearch({
+//       query: userInput + " dog parks",
+//       radius: 5000 // You can adjust the search radius as needed
+//     }, function (results, status) {
+//       if (status === google.maps.places.PlacesServiceStatus.OK) {
+//         // Clear existing markers on the map
+//         clearMarkers();
+
+//         // Display markers for each dog park in the search results
+//         for (var i = 0; i < results.length; i++) {
+//           createMarker(results[i]);
+//         }
+//       }
+//     });
+//   });
+
+//   function createMarker(place) {
+//     var marker = new google.maps.Marker({
+//       map: map,
+//       position: place.geometry.location,
+//       title: place.name
+//     });
+//     markers.push(marker);
+//   }
+
+//   function clearMarkers() {
+//     for (var i = 0; i < markers.length; i++) {
+//       markers[i].setMap(null);
+//     }
+//     markers = [];
+//   }
+
+//   // Initialize the map
+//   google.maps.event.addDomListener(window, 'load', initialize);
