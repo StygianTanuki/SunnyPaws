@@ -84,7 +84,7 @@ const getTrails = (lat, long) => {
     long +
     "&radius=50000&type=dog&keyword=park&key=AIzaSyAiKNEaOOEcNyMz_CmFsiM5pH9EtvAK5uk";
 
-  // var hiker = "./images/hiker.png";
+
 
   fetch(url, {
     method: "GET",
@@ -98,122 +98,13 @@ const getTrails = (lat, long) => {
 
       data.results.forEach((place) => {
         console.log(place);
+document.getElementById("dogParks").innerHTML += 
+`<div class = "card col-2">
+<div>Dog Park Name: ${place.name}</div>
 
-      //   new google.maps.Marker({
-      //     position: place.geometry.location,
-      //     map,
-      //     // icon: hiker, //If you add a custom icon you can add that here
-      //     title: place.name,
-      //   });
+</div>`;
+
       });
     })
     .catch((err) => console.log(err));
 };
-
-// $("#submitButton").on("click", function () {
-//   // Get the user input from the input field
-//   var userInput = $("#searchCity").val();
-
-//   // Add "dog parks" to the user input to search specifically for dog parks
-//   var query = userInput + " dog parks";
-
-//   // Initialize the map
-//   var map = new google.maps.Map(document.getElementById('map'), {
-//     center: {lat: -34.397, lng: 150.644},
-//     zoom: 14
-//   });
-
-//   // Create a Places service object to perform nearby search
-//   var service = new google.maps.places.PlacesService(map);
-
-//   // Perform the nearby search
-//   service.nearbySearch({
-//     location: map.getCenter(),
-//     radius: 5000, // You can adjust the search radius as needed
-//     keyword: 'dog park'
-//   }, function(results, status) {
-//     if (status === google.maps.places.PlacesServiceStatus.OK) {
-//       // Clear existing markers on the map
-//       clearMarkers();
-
-//       // Display markers for each dog park in the search results
-//       for (var i = 0; i < results.length; i++) {
-//         createMarker(results[i]);
-//       }
-//     }
-//   });
-// });
-
-// var markers = [];
-
-// function createMarker(place) {
-//   var marker = new google.maps.Marker({
-//     map: map,
-//     position: place.geometry.location,
-//     title: place.name
-//   });
-//   markers.push(marker);
-// }
-
-// function clearMarkers() {
-//   for (var i = 0; i < markers.length; i++) {
-//     markers[i].setMap(null);
-//   }
-//   markers = [];
-// }
-
-// var map;
-//   var service;
-//   var markers = [];
-
-//   function initialize() {
-//     // Create the map centered at a specific location (e.g., New York City)
-//     var center = new google.maps.LatLng(40.7128, -74.0060);
-//     map = new google.maps.Map(document.getElementById('map'), {
-//       center: center,
-//       zoom: 14
-//     });
-
-//     // Create a Places service object to perform text search
-//     service = new google.maps.places.PlacesService(map);
-//   }
-
-//   $("#submitButton").on("click", function () {
-//     // Get the user input from the input field
-//     var userInput = $("#searchCity").val();
-
-//     // Perform a text search for "dog parks" near the location specified by the user
-//     service.textSearch({
-//       query: userInput + " dog parks",
-//       radius: 5000 // You can adjust the search radius as needed
-//     }, function (results, status) {
-//       if (status === google.maps.places.PlacesServiceStatus.OK) {
-//         // Clear existing markers on the map
-//         clearMarkers();
-
-//         // Display markers for each dog park in the search results
-//         for (var i = 0; i < results.length; i++) {
-//           createMarker(results[i]);
-//         }
-//       }
-//     });
-//   });
-
-//   function createMarker(place) {
-//     var marker = new google.maps.Marker({
-//       map: map,
-//       position: place.geometry.location,
-//       title: place.name
-//     });
-//     markers.push(marker);
-//   }
-
-//   function clearMarkers() {
-//     for (var i = 0; i < markers.length; i++) {
-//       markers[i].setMap(null);
-//     }
-//     markers = [];
-//   }
-
-//   // Initialize the map
-//   google.maps.event.addDomListener(window, 'load', initialize);
