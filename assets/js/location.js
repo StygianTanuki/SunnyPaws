@@ -6,28 +6,49 @@ var citySearch = document.querySelector("#citySearch");
 var submitButton = document.querySelector("#submitButton");
 var apiKey = "f3ff5901402986dd4ec3b605204bfe0c";
 
-function search() {
-  var content = citySearch.value;
-}
+// function search() {
+//   var content = citySearch.value;
+// }
 
-async function getCoordinates(param) {
-  var apiUrl =
-    `https://api.openweathermap.org/data/2.5/weather?q=` +
-    param +
-    `&limit=5&appid=${apiKey}&units=imperial`;
-  console.log(apiUrl);
+// getCoordinates();
 
-  await fetch(apiUrl)
-    .then(function (Response) {
-      return Response.json();
+// async function getCoordinates(param) {
+//   var apiUrl =
+//     `https://api.openweathermap.org/data/2.5/weather?q=` +
+//     param +
+//     `&limit=5&appid=${apiKey}&units=imperial`;
+//   console.log(apiUrl);
+
+//   await fetch(apiUrl)
+//     .then(function (Response) {
+//       return Response.json();
+//     })
+//     .then(function (data) {
+//       var currentTemp = document.querySelector("#currentTemp");
+//       var icon = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
+
+//       currentTemp.innerHTML = `<h2>${data.name} <br>Current Forecast:</h2><img src=${icon}></img><div>Tempature: ${data.main.temp}</div><div>Humidty: ${data.main.humidity}</div><div>Wind Speed: ${data.wind.speed} mph</div>`;
+//     });
+// }
+
+const getWeather = (city) => {
+  const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+
+  fetch(weatherUrl)
+    .then((response) => response.json())
+    .then((data) => {
+      const weatherInfo = `
+        <div>Weather in ${data.name}:</div>
+        <div>Temperature: ${data.main.temp}°C</div>
+        <div>Description: ${data.weather[0].description}</div>
+        <div>Humidity: ${data.main.humidity}%</div>
+        <div>Wind Speed: ${data.wind.speed} m/s</div>
+      `;
+
+      document.getElementById("weatherInfo").innerHTML = weatherInfo;
     })
-    .then(function (data) {
-      var currentTemp = document.querySelector("#currentTemp");
-      var icon = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
-
-      currentTemp.innerHTML = `<h2>${data.name} <br>Current Forecast:</h2><img src=${icon}></img><div>Tempature: ${data.main.temp}</div><div>Humidty: ${data.main.humidity}</div><div>Wind Speed: ${data.wind.speed} mph</div>`;
-    });
-}
+    .catch((err) => console.log(err));
+};
 
 submitButton.addEventListener("click", function () {
   console.log("click");
@@ -100,7 +121,9 @@ const getTrails = (lat, long) => {
         console.log(place);
 document.getElementById("dogParks").innerHTML += 
 `<div class = "card col-2">
-<div>Dog Park Name: ${place.name}</div>
+<div>${place.name}</div>
+<div>Rating: ${place.rating}⭐</div>
+<div>Address: ${place.vicinity}</div>
 
 </div>`;
 
