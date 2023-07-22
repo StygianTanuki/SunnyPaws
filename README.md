@@ -10,8 +10,8 @@ Our website was designed to create the best way to find the local weather in the
 
 ## Credits
 
-Felix Rivera: https://github.com/StygianTanuki \n
-Justin Moore: https://github.com/justinryan8828 \n
+Felix Rivera: https://github.com/StygianTanuki 
+Justin Moore: https://github.com/justinryan8828
 Isaiah Rodriguez: https://github.com/IsaiahR533
 
 ## Screenshots
@@ -19,7 +19,6 @@ Isaiah Rodriguez: https://github.com/IsaiahR533
 ![Screenshot of Website](./images/_C__Users_Felix_Documents_UCF_Projects_Project_1_SunnyPaws_index.html.png)
 
 ![Screenshot of Website](./images/_C__Users_Felix_Documents_UCF_Projects_Project_1_SunnyPaws_location.html.png)
-
 ## Links
 
 Repository: https://github.com/StygianTanuki/SunnyPaws

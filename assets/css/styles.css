@@ -4,3 +4,10 @@ body {
 /* body{
   background-color: rgb(254 240 138);
  } */
+
+ @media screen and (max-width: 768px) {
+  main,
+  nav {
+    flex-direction: column;
+  }
+}
