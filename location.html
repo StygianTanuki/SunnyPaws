@@ -10,55 +10,55 @@
     <link rel="stylesheet" href="./assets/css/styles.css" />
   </head>
   
-  <body>
+<header>
   <img
     src="./images/Hemisphere Supply Co. - Modern.png"
     alt="logo display"
     class="sm:w-32 md:w-48 lg:w-56 xl:w-64 p-5"
   />
-    <div>
-      <div class="px-5">City Search:</div>
-      <div id="searchContainer">
-        <input type="text" id="searchCity" value="" class ="ml-5 bg-slate-200"/>
-        <button id="submitButton">Search</button>
-        <div id="location"></div>
-        <div id="weatherInfo"></div>
-        <div id="map"></div>
-      </div>
-    <!-- current weather data -->
-    <div id="container">
-      <div class="card-container">
+</header>
 
-        <div id="map">
-<iframe
-        id="mapFrame"
-  width="600"
-  height="450"
-  style="border:0"
-  loading="lazy"
-  allowfullscreen
-  referrerpolicy="no-referrer-when-downgrade"
-  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAiKNEaOOEcNyMz_CmFsiM5pH9EtvAK5uk
-    &q=Space+Needle,Seattle+WA">
-</iframe>
-        </div>
+  <body class="flex flex-col min-h-screen">
+    <div class="flex flex-col">
+    <div class="flex px-5 bg-gradient-to-r from-sky-400 underline bold decoration-2 font-bold">City Search:</div>
+    <div id="searchContainer" class="flex">
+      <input type="text" id="searchCity" value="" class="ml-5 bg-slate-200" placeholder="Type New Location"/>
+      <button id="submitButton" class="ml-3 px-4 py-2 bg-yellow-300 text-black rounded">Search</button>
+      <div id="location"></div>
+      <div id="weatherInfo" class="flex items-center gap-4"></div>
 
-
-
-        <div>
-          <div id="dogParks"></div>
-          <div class="park-card"></div>
-          <div class="park-card"></div>
-          <div class="park-card"></div>
-          <div class="park-card"></div>
-          <div class="park-card"></div>
-          <div class="park-card"></div>
-        </div>
-      </div>
-      <div id="parkInfo" class="park-container">
-      </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- current weather data -->
+    <div id="container" class="flex space-x-4 grid-cols-1 pt-10">
+
+        <div id="map" class="pl-6 h-auto">
+          <iframe
+            id="mapFrame"
+            class="border-4 border-yellow-300"
+            width="600"
+            height="450"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAiKNEaOOEcNyMz_CmFsiM5pH9EtvAK5uk&q=Space+Needle,Seattle+WA"
+          ></iframe>
+        </div>
+
+        <!-- <div class="flex-row pt-25 border-4 border-amber-900 rounded"> -->
+          <div id="dogParks" class="flex flex-col gap-4 p-5 rounded-lg bg-yellow-300 overflow-y-scroll h-80"></div>
+        <!-- </div> -->
+      <!-- </div> -->
+      <div id="parkInfo" class="park-container"></div>
+    </div>
+  </div>
+
+  <footer class="bg-sky-400 text-yellow-300 text-center font-bold p-4 mt-auto">
+    <div class="container mx-auto">
+      <p>Created by: BunnyBoys</p>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script
     src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
     integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
