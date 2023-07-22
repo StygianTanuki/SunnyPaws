@@ -10,8 +10,8 @@ Our website was designed to create the best way to find the local weather in the
 
 ## Credits
 
-Felix Rivera: https://github.com/StygianTanuki 
-Justin Moore: https://github.com/justinryan8828
+Felix Rivera: https://github.com/StygianTanuki \n
+Justin Moore: https://github.com/justinryan8828 \n
 Isaiah Rodriguez: https://github.com/IsaiahR533
 
 ## Screenshots
